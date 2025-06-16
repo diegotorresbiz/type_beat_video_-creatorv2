@@ -1,2 +1,12 @@
+
 [phases.setup]
-nixPkgs = ['ffmpeg']
+nixPkgs = ["python311", "python311Packages.pip", "ffmpeg", "google-chrome", "chromedriver"]
+
+[phases.install]
+dependsOn = ["setup"]
+
+[phases.build]
+dependsOn = ["install"]
+
+[start]
+cmd = "python3 main.py"
